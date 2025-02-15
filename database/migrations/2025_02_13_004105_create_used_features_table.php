@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('feature_id')->constrained('features');
+            $table->integer('credits')->default(0);
             $table->jsonb('data')->nullable();
             $table->timestamps();
         });

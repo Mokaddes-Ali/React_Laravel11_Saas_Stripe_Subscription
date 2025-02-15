@@ -114,7 +114,7 @@ export default function Feature({ feature, answer, children }) {
                                     </svg>
                                     <div>
                                         You do not have enough credits to use this feature.{" "}
-                                        <Link href="/" className="text-blue-500 underline">
+                                        <Link href={route('credit.index')} className="text-blue-500 underline">
                                             Buy More Credits
                                         </Link>
                                     </div>

@@ -3,6 +3,7 @@
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use App\Http\Controllers\CreditController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Feature1Controller;
 use App\Http\Controllers\Feature2Controller;
@@ -16,15 +17,24 @@ Route::get('/', function () {
     ]);
 });
 
+Route::get('/buy-credits/webhook', [CreditController::class, 'webhook'])->name('credit.webhook');
+
 // Route::get('/features', function () {
 //     return Inertia::render('Features');
 // })->name('feature1.index');
-
+Route::middleware('auth')->group(function () {
 Route::get('/features/feature1', [Feature1Controller::class, 'index'])->name('feature1.index');
 Route::get('/features/feature2', [Feature2Controller::class, 'index'])->name('feature2.index');
 
 Route::post('/features/feature1',[Feature1Controller::class, 'calculate'])->name('feature1.calculate');
-Route::post('/features/feature1',[Feature1Controller::class, 'calculate'])->name('feature1.calculate');
+Route::post('/features/feature2',[Feature2Controller::class, 'calculate'])->name('feature2.calculate');
+
+Route::get('/buy-credits', [CreditController::class, 'index'])->name('credit.index');
+
+Route::get('/buy-credits/success', [CreditController::class, 'success'])->name('credits.success');
+Route::get('/buy-credits/cancel', [CreditController::class, 'cancel'])->name('credits.cancel');
+Route::post('/buy-credits/{package}', [CreditController::class, 'buyCredits'])->name('credit.buy');
+});
 
 
 Route::get('/dashboard', function () {

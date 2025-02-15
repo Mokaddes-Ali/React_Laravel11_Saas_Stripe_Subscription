@@ -54,7 +54,7 @@ export default function AuthenticatedLayout({ header, children }) {
                                 <img src={coin} className="w-[20px]" alt="Coin Image.png" />
                                 {user?.available_credits ?? 0} Credits
 
-                                <SecondaryButton><Link className=''  href={route('dashboard')}>Get More</Link></SecondaryButton>
+                                <SecondaryButton><Link className=''  href={route('credit.index')}>Get More</Link></SecondaryButton>
                             </span>
                             <div className="relative ms-3">
                                 <Dropdown>
@@ -173,6 +173,12 @@ export default function AuthenticatedLayout({ header, children }) {
 
                     <div className="border-t border-gray-200 pb-1 pt-4 dark:border-gray-600">
                         <div className="px-4">
+                        <span className="text-black flex gap-3">
+                                <img src={coin} className="w-[20px]" alt="Coin Image.png" />
+                                {user?.available_credits ?? 0} Credits
+
+                                <SecondaryButton><Link className=''  href={route('dashboard')}>Get More</Link></SecondaryButton>
+                            </span>
                             <div className="text-base font-medium text-gray-800 dark:text-gray-200">
                                 {user.name}
                             </div>
