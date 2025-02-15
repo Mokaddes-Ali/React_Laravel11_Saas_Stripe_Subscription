@@ -23,13 +23,9 @@ Route::get('/', function () {
 Route::get('/features/feature1', [Feature1Controller::class, 'index'])->name('feature1.index');
 Route::get('/features/feature2', [Feature2Controller::class, 'index'])->name('feature2.index');
 
-// Route::post('/features/feature1', function () {
-//     return redirect()->route('feature1.index');
-// })->name('feature1.calculate');
+Route::post('/features/feature1',[Feature1Controller::class, 'calculate'])->name('feature1.calculate');
+Route::post('/features/feature1',[Feature1Controller::class, 'calculate'])->name('feature1.calculate');
 
-// Route::post('/features/feature2', function () {
-//     return redirect()->route('feature2.index');
-// })->name('feature2.calculate');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

@@ -5,6 +5,7 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
 import coin from '../../../public/build/assets/gold-coin-money-symbol-icon-png.webp'
+import SecondaryButton from '@/Components/SecondaryButton';
 
 export default function AuthenticatedLayout({ header, children }) {
     const { props } = usePage();
@@ -50,8 +51,10 @@ export default function AuthenticatedLayout({ header, children }) {
 
                         <div className="hidden sm:ms-6 sm:flex sm:items-center">
                         <span className="text-black flex gap-3">
-                        {user?.available_credits ?? 0} Credits
                                 <img src={coin} className="w-[20px]" alt="Coin Image.png" />
+                                {user?.available_credits ?? 0} Credits
+
+                                <SecondaryButton><Link className=''  href={route('dashboard')}>Get More</Link></SecondaryButton>
                             </span>
                             <div className="relative ms-3">
                                 <Dropdown>
