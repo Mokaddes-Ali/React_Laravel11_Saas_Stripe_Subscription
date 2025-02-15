@@ -4,9 +4,11 @@ import NavLink from '@/Components/NavLink';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link, usePage } from '@inertiajs/react';
 import { useState } from 'react';
+import coin from '../../../public/build/assets/gold-coin-money-symbol-icon-png.webp'
 
 export default function AuthenticatedLayout({ header, children }) {
-    const user = usePage().props.auth.user;
+    const { props } = usePage();
+    const user = props?.auth?.user || {};
 
     const [showingNavigationDropdown, setShowingNavigationDropdown] =
         useState(false);
@@ -36,17 +38,21 @@ export default function AuthenticatedLayout({ header, children }) {
                                 >
                                     Feature 1
                                 </NavLink>
-                                {/* <NavLink
+                                <NavLink
                                     href={route('feature2.index')}
                                     active={route().current('feature2.index')}
                                 >
                                     Feature 2
 
-                                </NavLink> */}
+                                </NavLink>
                             </div>
                         </div>
 
                         <div className="hidden sm:ms-6 sm:flex sm:items-center">
+                        <span className="text-black flex gap-3">
+                        {user?.available_credits ?? 0} Credits
+                                <img src={coin} className="w-[20px]" alt="Coin Image.png" />
+                            </span>
                             <div className="relative ms-3">
                                 <Dropdown>
                                     <Dropdown.Trigger>
@@ -147,6 +153,19 @@ export default function AuthenticatedLayout({ header, children }) {
                         >
                             Dashboard
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink
+                                    href={route('feature1.index')}
+                                    active={route().current('feature1.index')}
+                                >
+                                    Feature 1
+                                </ResponsiveNavLink>
+
+                                <ResponsiveNavLink
+                                    href={route('feature2.index')}
+                                    active={route().current('feature2.index')}
+                                >
+                                    Feature 2
+                                </ResponsiveNavLink>
                     </div>
 
                     <div className="border-t border-gray-200 pb-1 pt-4 dark:border-gray-600">

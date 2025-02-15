@@ -44,18 +44,18 @@ class DatabaseSeeder extends Seeder
         Feature::create([
             'image' => 'https://cdn.vectorstock.com/i/1000x1000/38/64/color-circle-with-plus-icon-vector-13503864.webp',
             'route_name' => 'feature1.index',
-            'name' => 'Feature 1',
-            'description' => 'Description of Feature 1',
-            'required_credits' => 10,
+            'name' => 'Sum of Two Numbers',
+            'description' => 'Calculate the sum of two numbers',
+            'required_credits' => 1,
             'active' => true,
         ]);
 
         Feature::create([
             'image' => 'https://cdn.vectorstock.com/i/1000x1000/38/64/color-circle-with-plus-icon-vector-13503864.webp',
             'route_name' => 'feature2.index',
-            'name' => 'Feature 2',
-            'description' => 'Description of Feature 2',
-            'required_credits' => 5,
+            'name' => 'Difference of Two Numbers',
+            'description' => 'Calculate the difference of two numbers',
+            'required_credits' => 3,
             'active' => true,
         ]);
 

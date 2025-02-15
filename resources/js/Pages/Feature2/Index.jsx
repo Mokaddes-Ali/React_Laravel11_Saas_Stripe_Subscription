@@ -69,13 +69,14 @@ export default function Index({ feature, answer }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        post(route("feature1.calculate"), {
+        post(route("feature2.calculate"), {
             onSuccess: () => reset(),
         });
     };
 
     return (
         <Feature feature={feature} answer={answer}>
+
             <form onSubmit={handleSubmit} className="p-8 grid grid-cols-2 gap-3">
                 <div>
                     <InputLabel htmlFor="number1" value="Number 1" />
